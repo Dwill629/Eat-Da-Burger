@@ -8,3 +8,12 @@ router.get("/", (req, res) => {
     res.render("index", { burgers: results })
   );
 });
+
+router.post("/api/burgers", (req, res) => {
+  burger.create({ burger_name: req.body.burger_name }, results => {
+    if (results.affectedRows === 0) {
+      return res.status(500).end();
+    }
+    res.status(200).end();
+  });
+});
