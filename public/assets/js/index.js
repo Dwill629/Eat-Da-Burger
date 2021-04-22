@@ -11,3 +11,17 @@ $(".devour-btn").click(function (e) {
     })
     .then(response => location.reload());
 });
+
+$(".submit-btn").click((e) => {
+  e.preventDefault();
+
+  const name = $("#burger-name").val().trim();
+
+  $.ajax(
+    {
+      url: "/api/burgers",
+      method: "POST",
+      data: { burger_name: name }
+    })
+    .then(response => location.reload());
+});
