@@ -9,3 +9,6 @@ const PORT = process.env.PORT || 3306;
 /* Decoding middleware */
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+/* Public static directory for serving up assets and files */
+app.use("/public", express.static(path.join(__dirname, "public")));
