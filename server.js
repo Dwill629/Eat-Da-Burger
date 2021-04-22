@@ -5,3 +5,7 @@ const burgers_controller = require("./controllers/burgers_controller");
 
 const app = express();
 const PORT = process.env.PORT || 3306;
+
+/* Decoding middleware */
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
