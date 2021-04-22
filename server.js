@@ -12,3 +12,7 @@ app.use(express.json());
 
 /* Public static directory for serving up assets and files */
 app.use("/public", express.static(path.join(__dirname, "public")));
+
+/* Handlebars middleware */
+app.engine("handlebars", hbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
